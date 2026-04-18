@@ -3,6 +3,8 @@ package com.alertdesk.case_management.service;
 import com.alertdesk.case_management.api.AddNoteRequest;
 import com.alertdesk.case_management.api.CreateCaseRequest;
 import com.alertdesk.case_management.api.SarDecisionRequest;
+import com.alertdesk.case_management.common.exception.GlobalExceptionHandler.BusinessRuleException;
+import com.alertdesk.case_management.common.exception.GlobalExceptionHandler.ResourceNotFoundException;
 import com.alertdesk.case_management.domain.AuditEventType;
 import com.alertdesk.case_management.domain.AuditLogEntryEntity;
 import com.alertdesk.case_management.domain.CaseEntity;
@@ -30,7 +32,7 @@ public class CaseService {
 
     public CaseEntity createCase(CreateCaseRequest request) {
         if (caseRepository.existsByCaseId(request.caseId())) {
-            throw new CaseConflictException("Case already exists: " + request.caseId());
+            throw new BusinessRuleException("Case already exists: " + request.caseId());
         }
 
         Instant openedAt = Instant.now();
@@ -69,7 +71,8 @@ public class CaseService {
 
     @Transactional
     public CaseEntity getCase(String caseId) {
-        CaseEntity entity = caseRepository.findByCaseId(caseId).orElseThrow(() -> new CaseNotFoundException(caseId));
+        CaseEntity entity = caseRepository.findByCaseId(caseId)
+                .orElseThrow(() -> new ResourceNotFoundException("Case not found: " + caseId));
         entity.getLinkedAlertIds().size();
         entity.getNotes().size();
         entity.getAuditLog().size();
@@ -97,7 +100,7 @@ public class CaseService {
     public CaseEntity fileSarDecision(String caseId, SarDecisionRequest request) {
         CaseEntity entity = getCase(caseId);
         if (entity.getStatus() != CaseStatus.PENDING_REVIEW) {
-            throw new InvalidCaseTransitionException("SAR decision is only valid when case status is PENDING_REVIEW");
+            throw new BusinessRuleException("SAR decision is only valid when case status is PENDING_REVIEW");
         }
 
         CaseStatus nextStatus = request.decision() == SarDecision.FILE ? CaseStatus.SAR_FILED : CaseStatus.NO_ACTION_TAKEN;
@@ -121,7 +124,7 @@ public class CaseService {
 
     private void validateTransition(CaseStatus currentStatus, CaseStatus nextStatus) {
         if (!currentStatus.canTransitionTo(nextStatus)) {
-            throw new InvalidCaseTransitionException("Cannot move case from " + currentStatus + " to " + nextStatus);
+            throw new BusinessRuleException("Cannot move case from " + currentStatus + " to " + nextStatus);
         }
     }
 
