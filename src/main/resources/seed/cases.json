@@ -1,0 +1,315 @@
+[
+  {
+    "caseId": "CASE-2024-0001",
+    "linkedAlertIds": ["ALT-00001", "ALT-00020"],
+    "customerId": "CUST-1042",
+    "priority": "HIGH",
+    "status": "OPEN",
+    "assignedAnalyst": "j.rahman",
+    "openedAt": "2024-03-08T08:30:00Z",
+    "sarDecision": null,
+    "sarRationale": null,
+    "notes": [],
+    "auditLog": [
+      {
+        "eventType": "CASE_OPENED",
+        "timestamp": "2024-03-08T08:30:00Z",
+        "analyst": "j.rahman",
+        "detail": "Case opened and linked to alerts ALT-00001 and ALT-00020"
+      }
+    ]
+  },
+  {
+    "caseId": "CASE-2024-0002",
+    "linkedAlertIds": ["ALT-00002"],
+    "customerId": "CUST-2187",
+    "priority": "HIGH",
+    "status": "UNDER_INVESTIGATION",
+    "assignedAnalyst": "s.okafor",
+    "openedAt": "2024-01-19T09:00:00Z",
+    "sarDecision": null,
+    "sarRationale": null,
+    "notes": [],
+    "auditLog": [
+      {
+        "eventType": "CASE_OPENED",
+        "timestamp": "2024-01-19T09:00:00Z",
+        "analyst": "s.okafor",
+        "detail": "Case opened and linked to alert ALT-00002"
+      },
+      {
+        "eventType": "STATUS_CHANGED",
+        "timestamp": "2024-01-19T14:15:00Z",
+        "analyst": "s.okafor",
+        "detail": "Status changed from OPEN to UNDER_INVESTIGATION"
+      }
+    ]
+  },
+  {
+    "caseId": "CASE-2024-0003",
+    "linkedAlertIds": ["ALT-00004", "ALT-00013"],
+    "customerId": "CUST-4455",
+    "priority": "HIGH",
+    "status": "PENDING_REVIEW",
+    "assignedAnalyst": "t.bergmann",
+    "openedAt": "2024-01-26T10:00:00Z",
+    "sarDecision": null,
+    "sarRationale": null,
+    "notes": [
+      {
+        "author": "t.bergmann",
+        "timestamp": "2024-01-27T11:30:00Z",
+        "text": "Sanctions screening confirmed a name match against the OFAC SDN list. Match confidence is 94%. Customer has been temporarily restricted pending MLRO review. Documentation requested from customer on source of funds."
+      },
+      {
+        "author": "t.bergmann",
+        "timestamp": "2024-02-02T09:45:00Z",
+        "text": "Customer has failed to provide requested documentation within the 5-day window. Secondary review by financial crime team confirms the match is likely a true positive. Escalating to senior investigator for PENDING_REVIEW sign-off."
+      }
+    ],
+    "auditLog": [
+      {
+        "eventType": "CASE_OPENED",
+        "timestamp": "2024-01-26T10:00:00Z",
+        "analyst": "t.bergmann",
+        "detail": "Case opened and linked to alerts ALT-00004 and ALT-00013"
+      },
+      {
+        "eventType": "STATUS_CHANGED",
+        "timestamp": "2024-01-26T15:00:00Z",
+        "analyst": "t.bergmann",
+        "detail": "Status changed from OPEN to UNDER_INVESTIGATION"
+      },
+      {
+        "eventType": "NOTE_ADDED",
+        "timestamp": "2024-01-27T11:30:00Z",
+        "analyst": "t.bergmann",
+        "detail": "Investigation note added"
+      },
+      {
+        "eventType": "NOTE_ADDED",
+        "timestamp": "2024-02-02T09:45:00Z",
+        "analyst": "t.bergmann",
+        "detail": "Investigation note added"
+      },
+      {
+        "eventType": "STATUS_CHANGED",
+        "timestamp": "2024-02-03T10:00:00Z",
+        "analyst": "t.bergmann",
+        "detail": "Status changed from UNDER_INVESTIGATION to PENDING_REVIEW"
+      }
+    ]
+  },
+  {
+    "caseId": "CASE-2024-0004",
+    "linkedAlertIds": ["ALT-00006"],
+    "customerId": "CUST-6612",
+    "priority": "HIGH",
+    "status": "SAR_FILED",
+    "assignedAnalyst": "j.rahman",
+    "openedAt": "2024-02-02T08:00:00Z",
+    "sarDecision": "FILE",
+    "sarRationale": "The customer's account was accessed from an unrecognised device in a foreign jurisdiction. A transfer of £15,200 was initiated within 4 minutes of login — inconsistent with the customer's normal behaviour. The customer confirmed via the bank's fraud line that they did not authorise the transfer. The destination account is linked to three other fraud reports in the past 30 days. Grounds for suspicion are sufficient to file a SAR under POCA 2002 Section 330.",
+    "notes": [
+      {
+        "author": "j.rahman",
+        "timestamp": "2024-02-02T10:30:00Z",
+        "text": "Customer contacted via fraud line and confirmed account compromise. Transfer of £15,200 to SORT: 20-91-44 ACC: 87654321 not authorised by customer. Receiving account has been flagged in the CIFAS database."
+      },
+      {
+        "author": "j.rahman",
+        "timestamp": "2024-02-03T09:00:00Z",
+        "text": "IP address geo-located to a VPN exit node associated with known fraud activity. Device fingerprint is new and does not match any of the customer's registered devices. Proceeds likely unrecoverable — receiving bank notified."
+      }
+    ],
+    "auditLog": [
+      {
+        "eventType": "CASE_OPENED",
+        "timestamp": "2024-02-02T08:00:00Z",
+        "analyst": "j.rahman",
+        "detail": "Case opened and linked to alert ALT-00006"
+      },
+      {
+        "eventType": "STATUS_CHANGED",
+        "timestamp": "2024-02-02T08:30:00Z",
+        "analyst": "j.rahman",
+        "detail": "Status changed from OPEN to UNDER_INVESTIGATION"
+      },
+      {
+        "eventType": "NOTE_ADDED",
+        "timestamp": "2024-02-02T10:30:00Z",
+        "analyst": "j.rahman",
+        "detail": "Investigation note added"
+      },
+      {
+        "eventType": "NOTE_ADDED",
+        "timestamp": "2024-02-03T09:00:00Z",
+        "analyst": "j.rahman",
+        "detail": "Investigation note added"
+      },
+      {
+        "eventType": "STATUS_CHANGED",
+        "timestamp": "2024-02-03T11:00:00Z",
+        "analyst": "j.rahman",
+        "detail": "Status changed from UNDER_INVESTIGATION to PENDING_REVIEW"
+      },
+      {
+        "eventType": "SAR_FILED",
+        "timestamp": "2024-02-04T09:15:00Z",
+        "analyst": "j.rahman",
+        "detail": "SAR decision: FILE. Case moved to SAR_FILED."
+      }
+    ]
+  },
+  {
+    "caseId": "CASE-2024-0005",
+    "linkedAlertIds": ["ALT-00007"],
+    "customerId": "CUST-7734",
+    "priority": "LOW",
+    "status": "NO_ACTION_TAKEN",
+    "assignedAnalyst": "p.nwosu",
+    "openedAt": "2024-02-04T11:00:00Z",
+    "sarDecision": "NO_ACTION",
+    "sarRationale": "The unusual activity alert was triggered by a single transaction of £1,100 that fell outside the customer's normal spending pattern. On review, the customer provided a satisfactory explanation — this was a payment for annual car insurance renewal. The transaction was to a regulated insurer and the amount is consistent with the stated purpose. No grounds for suspicion found. No further action required.",
+    "notes": [],
+    "auditLog": [
+      {
+        "eventType": "CASE_OPENED",
+        "timestamp": "2024-02-04T11:00:00Z",
+        "analyst": "p.nwosu",
+        "detail": "Case opened and linked to alert ALT-00007"
+      },
+      {
+        "eventType": "STATUS_CHANGED",
+        "timestamp": "2024-02-04T11:30:00Z",
+        "analyst": "p.nwosu",
+        "detail": "Status changed from OPEN to UNDER_INVESTIGATION"
+      },
+      {
+        "eventType": "STATUS_CHANGED",
+        "timestamp": "2024-02-05T09:00:00Z",
+        "analyst": "p.nwosu",
+        "detail": "Status changed from UNDER_INVESTIGATION to PENDING_REVIEW"
+      },
+      {
+        "eventType": "SAR_DECISION",
+        "timestamp": "2024-02-05T09:45:00Z",
+        "analyst": "p.nwosu",
+        "detail": "SAR decision: NO_ACTION. Case moved to NO_ACTION_TAKEN."
+      }
+    ]
+  },
+  {
+    "caseId": "CASE-2024-0006",
+    "linkedAlertIds": ["ALT-00009"],
+    "customerId": "CUST-8821",
+    "priority": "MEDIUM",
+    "status": "CLOSED",
+    "assignedAnalyst": "j.rahman",
+    "openedAt": "2024-02-09T09:30:00Z",
+    "sarDecision": "NO_ACTION",
+    "sarRationale": "Structuring alert triggered by two cash deposits totalling £7,400. Customer is a self-employed market trader. Bank statements provided show regular cash income consistent with the customer's stated business activity. Both deposits are within the customer's established 6-month pattern. No grounds for suspicion. Case closed following MLRO sign-off.",
+    "notes": [],
+    "auditLog": [
+      {
+        "eventType": "CASE_OPENED",
+        "timestamp": "2024-02-09T09:30:00Z",
+        "analyst": "j.rahman",
+        "detail": "Case opened and linked to alert ALT-00009"
+      },
+      {
+        "eventType": "STATUS_CHANGED",
+        "timestamp": "2024-02-09T10:00:00Z",
+        "analyst": "j.rahman",
+        "detail": "Status changed from OPEN to UNDER_INVESTIGATION"
+      },
+      {
+        "eventType": "STATUS_CHANGED",
+        "timestamp": "2024-02-12T14:00:00Z",
+        "analyst": "j.rahman",
+        "detail": "Status changed from UNDER_INVESTIGATION to PENDING_REVIEW"
+      },
+      {
+        "eventType": "SAR_DECISION",
+        "timestamp": "2024-02-13T09:00:00Z",
+        "analyst": "j.rahman",
+        "detail": "SAR decision: NO_ACTION. Case closed."
+      },
+      {
+        "eventType": "STATUS_CHANGED",
+        "timestamp": "2024-02-13T09:01:00Z",
+        "analyst": "j.rahman",
+        "detail": "Status changed to CLOSED"
+      }
+    ]
+  },
+  {
+    "caseId": "CASE-2024-0007",
+    "linkedAlertIds": ["ALT-00008", "ALT-00017"],
+    "customerId": "CUST-2187",
+    "priority": "HIGH",
+    "status": "UNDER_INVESTIGATION",
+    "assignedAnalyst": "s.okafor",
+    "openedAt": "2024-02-06T09:00:00Z",
+    "sarDecision": null,
+    "sarRationale": null,
+    "notes": [
+      {
+        "author": "s.okafor",
+        "timestamp": "2024-02-07T10:15:00Z",
+        "text": "Customer's account has now been linked to two separate APP scam victims across alerts ALT-00002 and ALT-00008. A third victim report came in via the PSR hotline today, relating to ALT-00017. This account is operating as a mule. Total victim losses across all three cases: £103,000. Account suspended pending investigation."
+      },
+      {
+        "author": "s.okafor",
+        "timestamp": "2024-02-10T14:30:00Z",
+        "text": "Customer account holder is uncontactable. Last known address confirmed via DVLA as correct but neighbours state the occupant moved out 3 weeks ago. Identity documents used at account opening may be fraudulent — being referred to the ID fraud team for analysis. Progressing to SAR filing."
+      }
+    ],
+    "auditLog": [
+      {
+        "eventType": "CASE_OPENED",
+        "timestamp": "2024-02-06T09:00:00Z",
+        "analyst": "s.okafor",
+        "detail": "Case opened and linked to alerts ALT-00008 and ALT-00017"
+      },
+      {
+        "eventType": "STATUS_CHANGED",
+        "timestamp": "2024-02-06T09:30:00Z",
+        "analyst": "s.okafor",
+        "detail": "Status changed from OPEN to UNDER_INVESTIGATION"
+      },
+      {
+        "eventType": "NOTE_ADDED",
+        "timestamp": "2024-02-07T10:15:00Z",
+        "analyst": "s.okafor",
+        "detail": "Investigation note added"
+      },
+      {
+        "eventType": "NOTE_ADDED",
+        "timestamp": "2024-02-10T14:30:00Z",
+        "analyst": "s.okafor",
+        "detail": "Investigation note added"
+      }
+    ]
+  },
+  {
+    "caseId": "CASE-2024-0008",
+    "linkedAlertIds": ["ALT-00010"],
+    "customerId": "CUST-9043",
+    "priority": "HIGH",
+    "status": "OPEN",
+    "assignedAnalyst": "t.bergmann",
+    "openedAt": "2024-03-08T11:00:00Z",
+    "sarDecision": null,
+    "sarRationale": null,
+    "notes": [],
+    "auditLog": [
+      {
+        "eventType": "CASE_OPENED",
+        "timestamp": "2024-03-08T11:00:00Z",
+        "analyst": "t.bergmann",
+        "detail": "Case opened and linked to alert ALT-00010"
+      }
+    ]
+  }
+]
