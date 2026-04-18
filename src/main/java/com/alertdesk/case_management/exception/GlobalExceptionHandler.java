@@ -1,4 +1,4 @@
-package com.alertdesk.case_management.common.exception;
+package com.alertdesk.case_management.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
